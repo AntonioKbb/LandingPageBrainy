@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Brainy - Resúmenes, esquemas y exámenes personalizados con IA</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Brainy te ayuda a transformar tus apuntes en resúmenes, esquemas, exámenes tipo test y tarjetas de estudio gracias a la IA.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', system-ui, sans-serif; }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-100">
+
+<!-- NAVBAR -->
+<header class="fixed top-0 inset-x-0 z-40 bg-slate-950/80 backdrop-blur border-b border-white/5">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
+    <div class="flex items-center gap-2">
+      <div class="h-9 w-9 rounded-xl bg-gradient-to-tr from-sky-400 via-emerald-400 to-indigo-500 flex items-center justify-center shadow-lg shadow-sky-500/30">
+        <span class="text-xl font-bold">B</span>
+      </div>
+      <div>
+        <span class="font-semibold tracking-tight text-slate-50">Brainy</span>
+        <p class="text-xs text-slate-400 hidden sm:block">Tu contenido de estudio → Transformado por IA</p>
+      </div>
+    </div>
+    <nav class="hidden md:flex gap-6 text-sm">
+      <a href="#como-funciona" class="hover:text-sky-300">Cómo funciona</a>
+      <a href="#beneficios" class="hover:text-sky-300">Beneficios</a>
+      <a href="#para-quien" class="hover:text-sky-300">Para quién</a>
+      <a href="#brainy-gpt" class="hover:text-sky-300">Brainy GPT</a>
+      <a href="#faq" class="hover:text-sky-300">FAQ</a>
+    </nav>
+    <div class="hidden sm:flex items-center gap-3">
+      <a href="https://antoniokbb.github.io/Brainy/" target="_blank"
+         class="text-xs sm:text-sm font-medium text-sky-300 hover:text-sky-200">
+        Abrir la aplicación Brainy
+      </a>
+      <a href="#empieza"
+         class="inline-flex items-center justify-center rounded-full bg-sky-500 px-4 py-2 text-xs sm:text-sm font-semibold text-slate-950 shadow-lg shadow-sky-500/30 hover:bg-sky-400 transition">
+        Empezar ahora
+      </a>
+    </div>
+    <button class="md:hidden px-2 py-1 border border-slate-700 rounded-lg" onclick="document.getElementById('menu').classList.toggle('hidden')">
+      <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"></path>
+      </svg>
+    </button>
+  </div>
+
+  <div id="menu" class="md:hidden hidden bg-slate-950 border-t border-slate-800 px-4 py-3 space-y-2 text-sm">
+    <a href="#como-funciona" class="block hover:text-sky-300">Cómo funciona</a>
+    <a href="#beneficios" class="block hover:text-sky-300">Beneficios</a>
+    <a href="#para-quien" class="block hover:text-sky-300">Para quién</a>
+    <a href="#brainy-gpt" class="block hover:text-sky-300">Brainy GPT</a>
+    <a href="#faq" class="block hover:text-sky-300">FAQ</a>
+    <a href="https://antoniokbb.github.io/Brainy/" target="_blank" class="block text-sky-300 font-medium">Abrir la app Brainy</a>
+  </div>
+</header>
+
+<main class="pt-24">
+
+<!-- HERO -->
+<section class="relative overflow-hidden">
+  <div class="absolute inset-0 -z-10">
+    <div class="absolute inset-0 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950"></div>
+    <div class="absolute -top-40 -right-20 w-80 h-80 bg-sky-500/20 blur-3xl rounded-full"></div>
+    <div class="absolute -bottom-32 -left-10 w-80 h-80 bg-emerald-400/20 blur-3xl rounded-full"></div>
+  </div>
+
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-20">
+    <div class="grid lg:grid-cols-2 gap-12 items-center">
+
+      <!-- TEXTO -->
+      <div class="space-y-6">
+        <span class="inline-flex items-center gap-2 bg-sky-500/10 border border-sky-400/20 px-3 py-1 rounded-full text-xs text-sky-200">
+          ✦ IA educativa
+        </span>
+        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-50">
+          Convierte tus apuntes en <span class="text-sky-300">resúmenes, esquemas, exámenes y tarjetas</span> en segundos.
+        </h1>
+        <p class="text-base sm:text-lg text-slate-300 max-w-xl">
+          Brainy es tu asistente de estudio con IA: toma tus apuntes y genera automáticamente resúmenes, esquemas,
+          diagramas de flujo, tarjetas de estudio y exámenes tipo test. Todo listo para repasar por temas.
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-3">
+          <a href="https://antoniokbb.github.io/Brainy/" target="_blank"
+             class="rounded-full bg-sky-500 px-6 py-3 font-semibold text-slate-950 shadow-lg shadow-sky-500/30 hover:bg-sky-400">
+            Empezar con Brainy
+          </a>
+          <a href="#brainy-gpt"
+             class="rounded-full border border-slate-700 px-6 py-3 text-slate-100 hover:border-sky-400 hover:text-sky-200">
+            Ver Brainy GPT
+          </a>
+        </div>
+      </div>
+
+      <!-- IMAGEN -->
+      <div class="relative">
+        <div class="absolute -inset-4 bg-gradient-to-tr from-sky-400/20 via-indigo-400/10 to-emerald-400/20 blur-2xl rounded-3xl"></div>
+        <div class="relative rounded-3xl border border-white/10 bg-slate-900/80 shadow-xl overflow-hidden">
+          <img src="https://images.pexels.com/photos/4050320/pexels-photo-4050320.jpeg"
+               alt="Estudiante generando resúmenes y esquemas con IA"
+               class="w-full h-72 object-cover">
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CÓMO FUNCIONA -->
+<section id="como-funciona" class="bg-slate-950 border-t border-slate-800 py-16 lg:py-20">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <h2 class="text-2xl sm:text-3xl font-semibold mb-3 text-slate-50">Cómo funciona Brainy</h2>
+    <p class="text-sm sm:text-base text-slate-300 max-w-2xl mb-10">
+      Brainy divide tus asignaturas por temas y, con ayuda de IA, genera materiales de estudio adaptados para cada uno.
+    </p>
+
+    <div class="grid lg:grid-cols-2 gap-10 items-start">
+
+      <!-- LISTA DE PASOS -->
+      <div class="space-y-6">
+
+        <div class="flex gap-4">
+          <div class="w-9 h-9 bg-sky-500/20 rounded-full flex items-center justify-center text-sky-200 border border-sky-400/40">1</div>
+          <div>
+            <h3 class="font-semibold text-slate-50 text-base">Elige la asignatura y el tema</h3>
+            <p class="text-sm text-slate-300">Organiza tu estudio por temas: matemáticas, biología, historia… lo que necesites.</p>
+          </div>
+        </div>
+
+        <div class="flex gap-4">
+          <div class="w-9 h-9 bg-sky-500/20 rounded-full flex items-center justify-center text-sky-200 border border-sky-400/40">2</div>
+          <div>
+            <h3 class="font-semibold text-slate-50 text-base">Pega tus apuntes</h3>
+            <p class="text-sm text-slate-300">Copia el contenido de tu tema. Brainy GPT analizará el texto.</p>
+          </div>
+        </div>
+
+        <div class="flex gap-4">
+          <div class="w-9 h-9 bg-sky-500/20 rounded-full flex items-center justify-center text-sky-200 border border-sky-400/40">3</div>
+          <div>
+            <h3 class="font-semibold text-slate-50 text-base">Obtén materiales generados por IA</h3>
+            <p class="text-sm text-slate-300">Resúmenes, esquemas, diagramas de flujo, tarjetas y exámenes tipo test.</p>
+          </div>
+        </div>
+
+        <div class="flex gap-4">
+          <div class="w-9 h-9 bg-sky-500/20 rounded-full flex items-center justify-center text-sky-200 border border-sky-400/40">4</div>
+          <div>
+            <h3 class="font-semibold text-slate-50 text-base">Repasa como prefieras</h3>
+            <p class="text-sm text-slate-300">Puedes descargar los materiales o usarlos directamente desde la app.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- IMAGEN -->
+      <div class="rounded-3xl overflow-hidden border border-slate-800 bg-slate-900/80 shadow-xl">
+        <img src="https://images.pexels.com/photos/8199557/pexels-photo-8199557.jpeg"
+             alt="Estudiantes organizando temas con Brainy"
+             class="w-full h-80 object-cover">
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- BENEFICIOS -->
+<section id="beneficios" class="bg-slate-900/60 border-y border-slate-800 py-16 lg:py-20">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <div class="mb-10">
+      <h2 class="text-2xl sm:text-3xl font-semibold text-slate-50">Beneficios para estudiantes</h2>
+      <p class="text-sm text-slate-300 mt-2 max-w-2xl">
+        Brainy transforma tus apuntes en los tipos de material que más te ayudan a retener conceptos.
+      </p>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+      <div class="p-5 bg-slate-950/70 rounded-2xl border border-slate-800">
+        <h3 class="font-semibold text-sm mb-2">Resúmenes claros y compactos</h3>
+        <p class="text-xs text-slate-300">Olvídate de releer páginas y páginas: Brainy GPT sintetiza el contenido esencial.</p>
+      </div>
+
+      <div class="p-5 bg-slate-950/70 rounded-2xl border border-slate-800">
+        <h3 class="font-semibold text-sm mb-2">Esquemas y mapas de ideas</h3>
+        <p class="text-xs text-slate-300">Organiza conceptos en diagramas fáciles de memorizar.</p>
+      </div>
+
+      <div class="p-5 bg-slate-950/70 rounded-2xl border border-slate-800">
+        <h3 class="font-semibold text-sm mb-2">Exámenes tipo test automáticos</h3>
+        <p class="text-xs text-slate-300">Genera preguntas con opciones y comprueba si dominas el tema.</p>
+      </div>
+
+      <div class="p-5 bg-slate-950/70 rounded-2xl border border-slate-800">
+        <h3 class="font-semibold text-sm mb-2">Tarjetas de estudio</h3>
+        <p class="text-xs text-slate-300">Crea tarjetas (flashcards) instantáneas a partir de tus apuntes.</p>
+      </div>
+
+      <div class="p-5 bg-slate-950/70 rounded-2xl border border-slate-800">
+        <h3 class="font-semibold text-sm mb-2">Comprensión visual del temario</h3>
+        <p class="text-xs text-slate-300">Los diagramas de flujo ayudan a entender procesos paso a paso.</p>
+      </div>
+
+      <div class="p-5 bg-slate-950/70 rounded-2xl border border-slate-800">
+        <h3 class="font-semibold text-sm mb-2">Todo organizado por temas</h3>
+        <p class="text-xs text-slate-300">Divide tus asignaturas de forma clara para repasar sin caos.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PARA QUIÉN ES -->
+<section id="para-quien" class="bg-slate-950 py-16 lg:py-20">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <div class="grid lg:grid-cols-2 gap-10 items-center">
+
+      <div>
+        <h2 class="text-2xl sm:text-3xl font-semibold text-slate-50 mb-3">¿Para quién es Brainy?</h2>
+        <p class="text-sm text-slate-300 mb-6">Todas las personas que estudian por temas y necesitan materiales fáciles de revisar.</p>
+
+        <div class="grid sm:grid-cols-2 gap-4">
+
+          <div class="border border-slate-800 bg-slate-950/80 p-4 rounded-2xl">
+            <h3 class="text-sm font-semibold text-slate-50 mb-1">Universitarios</h3>
+            <p class="text-xs text-slate-300">Temas extensos que necesitan resúmenes rápidos.</p>
+          </div>
+
+          <div class="border border-slate-800 bg-slate-950/80 p-4 rounded-2xl">
+            <h3 class="text-sm font-semibold text-slate-50 mb-1">Bachillerato</h3>
+            <p class="text-xs text-slate-300">Esquemas, exámenes tipo test y tarjetas para repasar.</p>
+          </div>
+
+          <div class="border border-slate-800 bg-slate-950/80 p-4 rounded-2xl">
+            <h3 class="text-sm font-semibold text-slate-50 mb-1">Opositores</h3>
+            <p class="text-xs text-slate-300">Mapas visuales que ahorren tiempo de estudio</p>
+          </div>
+
+          <div class="border border-slate-800 bg-slate-950/80 p-4 rounded-2xl">
+            <h3 class="text-sm font-semibold text-slate-50 mb-1">Autoaprendizaje</h3>
+            <p class="text-xs text-slate-300">Convierte materiales sueltos en contenidos claros.</p>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="rounded-3xl overflow-hidden border border-slate-800 shadow-xl bg-slate-900">
+        <img src="https://images.pexels.com/photos/4238487/pexels-photo-4238487.jpeg"
+             alt="Grupo de estudiantes utilizando recursos generados por IA"
+             class="w-full h-80 object-cover">
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- BRAINY GPT -->
+<section id="brainy-gpt" class="bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 border-y border-slate-800 py-16 lg:py-20">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <div class="grid lg:grid-cols-[1.2fr,1fr] gap-10 items-center">
+
+      <div class="space-y-6">
+        <h2 class="text-2xl sm:text-3xl font-semibold text-slate-50">Brainy GPT</h2>
+        <p class="text-sm text-slate-300">
+          Brainy GPT analiza tus apuntes y genera los materiales que necesites: resúmenes, esquemas, diagramas de
+          flujo, tarjetas y exámenes tipo test. No organiza planes de estudio: produce contenido listo para repasar.
+        </p>
+
+        <div class="bg-sky-500/10 border border-sky-400/30 rounded-2xl p-4">
+          <p class="text-sm text-slate-50 font-semibold mb-1">Recomendación importante</p>
+          <p class="text-xs text-slate-100">
+            Para usar Brainy GPT necesitas una cuenta de ChatGPT (gratuita es suficiente). Esto te permitirá generar
+            todos tus materiales de estudio a partir de texto.
+          </p>
+        </div>
+
+        <div class="flex flex-col sm:flex-row gap-3">
+          <a href="https://chatgpt.com/g/g-691718eca39c81918278fb18ca12bb3a-brainy-gpt"
+             target="_blank"
+             class="rounded-full bg-emerald-500 px-6 py-3 text-sm font-semibold text-slate-950 shadow-lg shadow-emerald-500/40 hover:bg-emerald-400">
+            Abrir Brainy GPT
+          </a>
+          <a href="https://antoniokbb.github.io/Brainy/" target="_blank"
+             class="rounded-full border border-slate-700 px-6 py-3 text-sm text-slate-100 hover:border-sky-400 hover:text-sky-200">
+            Abrir la app Brainy
+          </a>
+        </div>
+      </div>
+
+      <!-- Conversación ejemplo -->
+      <div class="p-4 border border-slate-800 bg-slate-950/80 rounded-3xl shadow-xl">
+        <p class="text-xs text-slate-300 mb-3 font-semibold">Ejemplo</p>
+
+        <div class="space-y-3 text-xs">
+
+          <div class="flex gap-2">
+            <div class="h-6 w-6 flex items-center justify-center rounded-full bg-slate-800 text-[11px]">Tú</div>
+            <div class="bg-slate-900 px-3 py-2 rounded-2xl max-w-xs">
+              /test Tema1_Matrices.pdf
+            </div>
+          </div>
+
+          <div class="flex gap-2">
+            <div class="h-6 w-6 flex items-center justify-center rounded-full bg-sky-500 text-slate-950 font-bold text-[11px]">B</div>
+            <div class="bg-sky-500/15 border border-sky-400/40 px-3 py-2 rounded-2xl max-w-xs">
+              Perfecto. Aquí tienes un test de práctica de los contenidos de tu pdf
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- EMPEZAR AHORA -->
+<section id="empieza" class="bg-slate-950 py-16 lg:py-20">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <div class="text-center max-w-2xl mx-auto mb-12">
+      <h2 class="text-2xl sm:text-3xl font-semibold text-slate-50">Empieza en 3 pasos</h2>
+      <p class="text-sm text-slate-300 mt-3">Es sencillo: temas → apuntes → materiales generados.</p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6">
+
+      <div class="border border-slate-800 bg-slate-950/80 p-5 rounded-2xl relative">
+        <span class="absolute -top-3 left-4 h-6 w-6 text-xs font-semibold text-slate-950 bg-sky-500 flex items-center justify-center rounded-full shadow-sky-500/40 shadow-md">1</span>
+        <h3 class="font-semibold text-sm mb-2">Abre Brainy GPT</h3>
+        <p class="text-xs text-slate-300">Accede al modelo especializado para generar contenido.</p>
+      </div>
+
+      <div class="border border-slate-800 bg-slate-950/80 p-5 rounded-2xl relative">
+        <span class="absolute -top-3 left-4 h-6 w-6 text-xs font-semibold text-slate-950 bg-sky-500 flex items-center justify-center rounded-full shadow-sky-500/40 shadow-md">2</span>
+        <h3 class="font-semibold text-sm mb-2">Pega tus apuntes</h3>
+        <p class="text-xs text-slate-300">La IA transformará tu texto en materiales listos para estudiar.</p>
+      </div>
+
+      <div class="border border-slate-800 bg-slate-950/80 p-5 rounded-2xl relative">
+        <span class="absolute -top-3 left-4 h-6 w-6 text-xs font-semibold text-slate-950 bg-sky-500 flex items-center justify-center rounded-full shadow-sky-500/40 shadow-md">3</span>
+        <h3 class="font-semibold text-sm mb-2">Organiza y repasa en Brainy</h3>
+        <p class="text-xs text-slate-300 mb-3">Clasifica tus materiales por temas dentro de la app.</p>
+        <a href="https://antoniokbb.github.io/Brainy/" target="_blank"
+           class="inline-block mt-2 bg-sky-500 px-4 py-2 rounded-full text-xs font-semibold text-slate-950 hover:bg-sky-400">
+          Abrir aplicación Brainy
+        </a>
+      </div>
+
+    </div>
+
+    <div class="text-center mt-10">
+      <a href="https://antoniokbb.github.io/Brainy/" target="_blank"
+         class="bg-emerald-500 px-6 py-3 rounded-full text-sm font-semibold text-slate-950 shadow-lg shadow-emerald-500/30 hover:bg-emerald-400">
+        Empezar ahora con Brainy
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="bg-slate-900/60 border-y border-slate-800 py-16 lg:py-20">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h2 class="text-2xl sm:text-3xl font-semibold text-slate-50 mb-6">Preguntas frecuentes</h2>
+
+    <div class="grid md:grid-cols-2 gap-6">
+
+      <div class="border border-slate-800 p-5 rounded-2xl bg-slate-950/80">
+        <h3 class="text-sm font-semibold text-slate-50 mb-2">¿Necesito ChatGPT?</h3>
+        <p class="text-xs text-slate-300">Es recomendable. Brainy GPT funciona dentro de ChatGPT y te ahorra mucho tiempo y esfuerzo. La versión gratuita es suficiente.</p>
+      </div>
+
+      <div class="border border-slate-800 p-5 rounded-2xl bg-slate-950/80">
+        <h3 class="text-sm font-semibold text-slate-50 mb-2">¿Qué hace exactamente Brainy GPT?</h3>
+        <p class="text-xs text-slate-300">Genera resúmenes, esquemas, diagramas, tarjetas y exámenes tipo test a partir de tus apuntes. No gestiona planes de estudio.</p>
+      </div>
+
+      <div class="border border-slate-800 p-5 rounded-2xl bg-slate-950/80">
+        <h3 class="text-sm font-semibold text-slate-50 mb-2">¿Se guardan mis apuntes?</h3>
+        <p class="text-xs text-slate-300">Se guardan en el local Storage del navegador de tu dispositivo.</p>
+      </div>
+
+      <div class="border border-slate-800 p-5 rounded-2xl bg-slate-950/80">
+        <h3 class="text-sm font-semibold text-slate-50 mb-2">¿Puedo usar Brainy desde el móvil?</h3>
+        <p class="text-xs text-slate-300">Sí, funciona en navegador desde cualquier dispositivo.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="bg-slate-950 py-10 border-t border-slate-800 text-center text-sm text-slate-400">
+  <p>Contacto: <a href="mailto:antonio.cabadas@brainy.es" class="text-sky-300 hover:text-sky-200">antonio.cabadas@brainy.es</a></p>
+  <p class="text-xs mt-2">&copy; 2025 Brainy — Proyecto educativo con IA</p>
+</footer>
+
+</body>
+</html>
